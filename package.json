@@ -13,7 +13,6 @@
   "description": "",
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.9",
-    "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dayjs": "^1.11.13",
@@ -21,7 +20,8 @@
     "express": "^5.1.0",
     "mongoose": "^8.15.0",
     "morgan": "^1.10.0",
-    "node-cache": "^5.1.2"
+    "node-cache": "^5.1.2",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",

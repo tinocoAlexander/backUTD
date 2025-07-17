@@ -1,15 +1,19 @@
-import { defaultMaxListeners } from "events"
-import mongoose from "mongoose"
+import mongoose from 'mongoose';
 
+const connectDB = async (): Promise<void> => {
+  const mongoUrl = process.env.MONGO_URL;
 
-const connectDB = async () : Promise<void> => {
-    const mongoUrl="mongodb://admin:admin@localhost:27017/userdb?authSource=admin"
-    try {
-        await mongoose.connect(mongoUrl)
-        console.log("conectado a mongo")
-    } catch (error){
-        console.log("error al conectar mongo")
-    }
-}
+  if (!mongoUrl) {
+    throw new Error('❌ MONGO_URL environment variable is not defined');
+  }
+
+  try {
+    await mongoose.connect(mongoUrl);
+    console.log('✅ Connected to MongoDB');
+  } catch (error) {
+    console.error('❌ Failed to connect to MongoDB:', error);
+    process.exit(1); // Cierra la app si no puede conectar
+  }
+};
 
 export default connectDB;
